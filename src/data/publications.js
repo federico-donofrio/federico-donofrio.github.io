@@ -1,19 +1,20 @@
 export const publications = {
   books: [
     {
-      year: 2016,
-      authors: "D’Onofrio, F.",
-      title: "Observing Agriculture in Early Twentieth-Century Italy: Agricultural Economists and Statistics",
-      details: "London and New York: Routledge.",
-      link: ""
-    },
-    {
       year: 2025,
       authors: "Joly, N. and D’Onofrio, F. (eds)",
       title: "The Invention of the Accounting Farmer",
       details: "Woodbridge: Boydell & Brewer.",
       link: ""
     }
+    {
+      year: 2016,
+      authors: "D’Onofrio, F.",
+      title: "Observing Agriculture in Early Twentieth-Century Italy: Agricultural Economists and Statistics",
+      details: "London and New York: Routledge.",
+      link: ""
+    },
+    
   ],
 
   articles: [
