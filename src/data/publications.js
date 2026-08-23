@@ -6,7 +6,7 @@ export const publications = {
       title: "The Invention of the Accounting Farmer",
       details: "Woodbridge: Boydell & Brewer.",
       link: ""
-    }
+    },
     {
       year: 2016,
       authors: "D’Onofrio, F.",
