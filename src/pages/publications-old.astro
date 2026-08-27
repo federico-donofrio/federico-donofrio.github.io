@@ -1,0 +1,284 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import "../styles/global.css";
+import { publications, pipeline } from "../data/publications.js";
+---
+
+<MainLayout title="Publications — Federico D'Onofrio">
+
+  <h1>Publications</h1>
+
+  <!-- BOOKS -->
+
+  <details class="publication-drawer">
+    <summary>Books and edited volumes</summary>
+
+    <div class="publication-drawer-content">
+
+      {publications.books.map((publication) => (
+        <details class="publication-entry">
+
+          <summary>
+            <span class="publication-entry-year">{publication.year}</span>
+
+            <span class="publication-bibliography">
+              <span class="publication-title">
+                {publication.authors} <em>{publication.title}</em>
+              </span>
+
+              <span class="publication-details">
+                {publication.details}
+
+                <span class="publication-links">
+                  {publication.doi && (
+                    <a
+                      href={publication.doi}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >[doi]</a>
+                  )}
+
+                  {publication.publisher && (
+                    <a
+                      href={publication.publisher}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >[publisher]</a>
+                  )}
+
+                  {publication.unibo && (
+                    <a
+                      href={publication.unibo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >[UniBo]</a>
+                  )}
+
+                  {publication.pdf && (
+                    <a
+                      href={publication.pdf}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >[pdf]</a>
+                  )}
+                </span>
+              </span>
+            </span>
+          </summary>
+
+          <div class="publication-extra">
+
+            {publication.abstract && (
+              <div class="publication-abstract">
+                <p class="publication-label">Abstract</p>
+                <p>{publication.abstract}</p>
+              </div>
+            )}
+
+            {publication.cover && (
+              <div class="publication-cover">
+                <img
+  src={`${import.meta.env.BASE_URL}${publication.cover.replace(/^\/+/, "")}`}
+  alt={`Cover of ${publication.title}`}
+/>
+              </div>
+            )}
+
+          </div>
+
+        </details>
+      ))}
+
+    </div>
+  </details>
+
+
+  <!-- ARTICLES -->
+
+  <details class="publication-drawer">
+    <summary>Articles in peer-reviewed journals</summary>
+
+    <div class="publication-drawer-content">
+
+      {publications.articles.map((publication) => (
+        <details class="publication-entry">
+
+          <summary>
+            <span class="publication-entry-year">{publication.year}</span>
+
+            <span class="publication-bibliography">
+
+              <span class="publication-title">
+                {publication.authors} “{publication.title}”
+              </span>
+
+              <span class="publication-details">
+                <em>{publication.details.split(",")[0]}</em>
+                {publication.details.substring(publication.details.indexOf(","))}
+
+                <span class="publication-links">
+                  {publication.doi && (
+                    <a
+                      href={publication.doi}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >[doi]</a>
+                  )}
+
+                  {publication.publisher && (
+                    <a
+                      href={publication.publisher}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >[publisher]</a>
+                  )}
+
+                  {publication.unibo && (
+                    <a
+                      href={publication.unibo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >[UniBo]</a>
+                  )}
+
+                  {publication.pdf && (
+                    <a
+                      href={publication.pdf}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >[pdf]</a>
+                  )}
+                </span>
+              </span>
+
+            </span>
+          </summary>
+
+          <div class="publication-extra">
+
+            {publication.abstract && (
+              <div class="publication-abstract">
+                <p class="publication-label">Abstract</p>
+                <p>{publication.abstract}</p>
+              </div>
+            )}
+
+          </div>
+
+        </details>
+      ))}
+
+    </div>
+  </details>
+
+
+  <!-- CHAPTERS -->
+
+  <details class="publication-drawer">
+  <summary>Chapters and other articles</summary>
+
+  <div class="publication-drawer-content">
+
+    {publications.chapters.map((publication) => (
+      <article class="chapter-entry">
+
+        <div class="chapter-year">
+          {publication.year}
+        </div>
+
+        <div class="chapter-bibliography">
+
+          <div class="chapter-title">
+            {publication.authors} “{publication.title}”
+          </div>
+
+          <div class="chapter-details">
+            {publication.details}
+          </div>
+
+          <div class="publication-links">
+            {publication.doi && (
+              <a
+                href={publication.doi}
+                target="_blank"
+                rel="noopener noreferrer"
+              >[doi]</a>
+            )}
+
+            {publication.publisher && (
+              <a
+                href={publication.publisher}
+                target="_blank"
+                rel="noopener noreferrer"
+              >[publisher]</a>
+            )}
+
+            {publication.unibo && (
+              <a
+                href={publication.unibo}
+                target="_blank"
+                rel="noopener noreferrer"
+              >[UniBo]</a>
+            )}
+
+            {publication.pdf && (
+              <a
+                href={publication.pdf}
+                target="_blank"
+                rel="noopener noreferrer"
+              >[pdf]</a>
+            )}
+          </div>
+
+        </div>
+
+      </article>
+    ))}
+
+  </div>
+</details>
+
+  <!-- WORK IN PROGRESS -->
+
+  <details class="publication-drawer">
+    <summary>Work in progress</summary>
+
+    <div class="publication-drawer-content">
+
+      {pipeline.map((publication) => (
+        <article class="pipeline-entry">
+
+          <div class="pipeline-title">
+            {publication.authors && `${publication.authors} `}
+            “{publication.title}”
+          </div>
+
+          <div class="publication-status">
+            {publication.status}
+
+            <span class="publication-links">
+              {publication.doi && (
+                <a href={publication.doi}>[doi]</a>
+              )}
+
+              {publication.publisher && (
+                <a href={publication.publisher}>[publisher]</a>
+              )}
+
+              {publication.unibo && (
+                <a href={publication.unibo}>[UniBo]</a>
+              )}
+
+              {publication.pdf && (
+                <a href={publication.pdf}>[pdf]</a>
+              )}
+            </span>
+          </div>
+
+        </article>
+      ))}
+
+    </div>
+  </details>
+
+</MainLayout>

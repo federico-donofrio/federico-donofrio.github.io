@@ -8,73 +8,270 @@ import { publications, pipeline } from "../data/publications.js";
 
   <h1>Publications</h1>
 
-  <section>
-    <h2 class="section-title">Books and edited volumes</h2>
 
-    {publications.books.map((publication) => (
-      <article class="publication">
-        <div class="publication-year">{publication.year}</div>
-        <div class="publication-text">
-          <div>
-            {publication.authors} <em>{publication.title}</em>
-            {publication.link && <a href={publication.link}>[--&gt;]</a>}
+  <!-- BOOKS -->
+
+  <details class="publication-drawer">
+    <summary>Books and edited volumes</summary>
+
+    <div class="publication-drawer-content">
+
+      {publications.books.map((publication) => (
+        <details class="publication-entry">
+
+          <summary class="publication-entry-summary">
+            <span class="publication-entry-year">
+              {publication.year}
+            </span>
+
+            <span class="publication-bibliography">
+
+              <span class="publication-title">
+                {publication.authors}, <em>{publication.title}</em>.
+              </span>
+
+              <span class="publication-details">
+                {publication.details}
+              </span>
+
+            </span>
+          </summary>
+
+          <div class="publication-extra">
+
+            <div class="publication-links">
+              {publication.doi && (
+                <a href={publication.doi} target="_blank" rel="noopener noreferrer">
+                  [doi]
+                </a>
+              )}
+
+              {publication.publisher && (
+                <a href={publication.publisher} target="_blank" rel="noopener noreferrer">
+                  [publisher]
+                </a>
+              )}
+
+              {publication.unibo && (
+                <a href={publication.unibo} target="_blank" rel="noopener noreferrer">
+                  [UniBo]
+                </a>
+              )}
+
+              {publication.pdf && (
+                <a href={publication.pdf} target="_blank" rel="noopener noreferrer">
+                  [pdf]
+                </a>
+              )}
+            </div>
+
+            {publication.abstract && (
+              <div class="publication-abstract">
+                <p class="publication-label">Abstract</p>
+                <p>{publication.abstract}</p>
+              </div>
+            )}
+
+            {publication.cover && (
+              <div class="publication-cover">
+                <img
+                  src={`${import.meta.env.BASE_URL}${publication.cover.replace(/^\/+/, "")}`}
+                  alt={`Cover of ${publication.title}`}
+                />
+              </div>
+            )}
+
           </div>
-          <div class="publication-details">{publication.details}</div>
-        </div>
-      </article>
-    ))}
-  </section>
 
-  <section>
-    <h2 class="section-title">Articles</h2>
+        </details>
+      ))}
 
-    {publications.articles.map((publication) => (
-      <article class="publication">
-        <div class="publication-year">{publication.year}</div>
-        <div class="publication-text">
-          <div>
-            {publication.authors} “{publication.title}”
-            {publication.link && <a href={publication.link}>[--&gt;]</a>}
+    </div>
+  </details>
+
+
+  <!-- ARTICLES -->
+
+  <details class="publication-drawer">
+    <summary>Articles in peer-reviewed journals</summary>
+
+    <div class="publication-drawer-content">
+
+      {publications.articles.map((publication) => (
+        <details class="publication-entry">
+
+          <summary class="publication-entry-summary">
+
+            <span class="publication-entry-year">
+              {publication.year}
+            </span>
+
+            <span class="publication-bibliography">
+
+              <span class="publication-title">
+                {publication.authors}, “{publication.title}”
+              </span>
+
+              <span class="publication-details">
+                <em>{publication.journal}</em>,
+                {publication.details}
+              </span>
+
+            </span>
+
+          </summary>
+
+          <div class="publication-extra">
+
+            <div class="publication-links">
+              {publication.doi && (
+                <a href={publication.doi} target="_blank" rel="noopener noreferrer">
+                  [doi]
+                </a>
+              )}
+
+              {publication.publisher && (
+                <a href={publication.publisher} target="_blank" rel="noopener noreferrer">
+                  [publisher]
+                </a>
+              )}
+
+              {publication.unibo && (
+                <a href={publication.unibo} target="_blank" rel="noopener noreferrer">
+                  [UniBo]
+                </a>
+              )}
+
+              {publication.pdf && (
+                <a href={publication.pdf} target="_blank" rel="noopener noreferrer">
+                  [pdf]
+                </a>
+              )}
+            </div>
+
+            {publication.abstract && (
+              <div class="publication-abstract">
+                <p class="publication-label">Abstract</p>
+                <p>{publication.abstract}</p>
+              </div>
+            )}
+
           </div>
-          <div class="publication-details">{publication.details}</div>
-        </div>
-      </article>
-    ))}
-  </section>
 
-  <section>
-    <h2 class="section-title">Chapters and other contributions</h2>
+        </details>
+      ))}
 
-    {publications.chapters.map((publication) => (
-      <article class="publication">
-        <div class="publication-year">{publication.year}</div>
-        <div class="publication-text">
-          <div>
-            {publication.authors} “{publication.title}”
-            {publication.link && <a href={publication.link}>[--&gt;]</a>}
+    </div>
+  </details>
+
+
+  <!-- CHAPTERS AND OTHER ARTICLES -->
+
+  <details class="publication-drawer">
+    <summary>Chapters and other articles</summary>
+
+    <div class="publication-drawer-content">
+
+      {publications.chapters.map((publication) => (
+        <article class="chapter-entry">
+
+          <div class="chapter-year">
+            {publication.year}
           </div>
-          <div class="publication-details">{publication.details}</div>
-        </div>
-      </article>
-    ))}
-  </section>
 
-  <section>
-    <h2 class="section-title">Work in progress</h2>
+          <div class="chapter-bibliography">
 
-    {pipeline.map((publication) => (
-      <article class="pipeline-entry">
-        <div>
-          {publication.authors && `${publication.authors} `}
-          “{publication.title}”
-          {publication.link && <a href={publication.link}>[--&gt;]</a>}
-        </div>
+            <div class="chapter-title">
+              {publication.authors}, “{publication.title}”
+            </div>
 
-        {publication.status && (
-          <div class="publication-details">{publication.status}</div>
-        )}
-      </article>
-    ))}
-  </section>
+            <div class="chapter-container">
+              {publication.in}
+              {publication.containerTitle && (
+                <>
+                  <em>{publication.containerTitle}</em>
+                  {publication.containerDetails}
+                </>
+              )}
+
+              {!publication.containerTitle && publication.details}
+            </div>
+
+            <div class="publication-links">
+              {publication.doi && (
+                <a href={publication.doi} target="_blank" rel="noopener noreferrer">
+                  [doi]
+                </a>
+              )}
+
+              {publication.publisher && (
+                <a href={publication.publisher} target="_blank" rel="noopener noreferrer">
+                  [publisher]
+                </a>
+              )}
+
+              {publication.unibo && (
+                <a href={publication.unibo} target="_blank" rel="noopener noreferrer">
+                  [UniBo]
+                </a>
+              )}
+
+              {publication.pdf && (
+                <a href={publication.pdf} target="_blank" rel="noopener noreferrer">
+                  [pdf]
+                </a>
+              )}
+            </div>
+
+          </div>
+
+        </article>
+      ))}
+
+    </div>
+  </details>
+
+
+  <!-- WORK IN PROGRESS -->
+
+  <details class="publication-drawer">
+    <summary>Work in progress</summary>
+
+    <div class="publication-drawer-content">
+
+      {pipeline.map((publication) => (
+        <article class="pipeline-entry">
+
+          <div class="pipeline-title">
+            {publication.authors}, “{publication.title}”
+          </div>
+
+          <div class="publication-status">
+            {publication.status}
+
+            <span class="publication-links">
+              {publication.doi && (
+                <a href={publication.doi}>[doi]</a>
+              )}
+
+              {publication.publisher && (
+                <a href={publication.publisher}>[publisher]</a>
+              )}
+
+              {publication.unibo && (
+                <a href={publication.unibo}>[UniBo]</a>
+              )}
+
+              {publication.pdf && (
+                <a href={publication.pdf}>[pdf]</a>
+              )}
+            </span>
+          </div>
+
+        </article>
+      ))}
+
+    </div>
+  </details>
 
 </MainLayout>
