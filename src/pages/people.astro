@@ -23,9 +23,16 @@ import { currentPeople, formerPeople } from "../data/people.js";
         </p>
 
         <p>
-          <strong>Dissertation:</strong>
-          <em>{person.dissertation}</em>
-        </p>
+  <strong>Dissertation:</strong> {person.dissertation}
+</p>
+
+{person.thesisAbstract && (
+  <div class="thesis-abstract">
+    <p class="people-label">Abstract</p>
+    <p>{person.thesisAbstract}</p>
+  </div>
+)}
+
 
         {person.supervisors.length > 0 && (
           <p>

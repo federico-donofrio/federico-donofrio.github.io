@@ -528,3 +528,18 @@ main h3 {
     width: 120px;
   }
 }
+.thesis-abstract {
+  margin: 0.75rem 0 1rem 1rem;
+  padding-left: 1rem;
+  border-left: 1px solid var(--line);
+  max-width: 70ch;
+}
+
+.people-label {
+  margin-bottom: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.6;
+}
