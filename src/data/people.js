@@ -12,7 +12,9 @@ export const currentPeople = {
       affiliation: "University of Vienna",
       dissertation:
         "Redefining Profit: Multilevel Perspectives on the Reform of Accounting in Russia's Economic Transition",
-      supervisors: ["Federico D’Onofrio", "Wolfgang Mueller"]
+      supervisors: ["Federico D’Onofrio", "Wolfgang Mueller"],
+      
+      thesisAbstract: "The project examines the transformation of accounting during the late-Soviet and early post-Soviet transition to capitalism. It focuses on how key accounting concepts, such as profit, capital, and costs, were redefined as Soviet economic practices encountered capitalist logic. Accounting was not merely a technical instrument but a mechanism that made economic priorities visible, shaped decision-making, and mediated institutional change. Drawing on legal and archival sources, accounting literature, international organisations’ archives, and interviews with practitioners, the project examines these transformations at the levels of the state, enterprises, accountants, and international organisations. It offers a new intellectual and social history perspective on Russia’s transition to capitalism. For info, contact: maralexroma[at]gmail.com"
     },
     {
   name: "Filippo Soramel",
