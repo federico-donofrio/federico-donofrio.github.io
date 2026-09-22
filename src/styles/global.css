@@ -543,3 +543,9 @@ main h3 {
   letter-spacing: 0.04em;
   opacity: 0.6;
 }
+.home-portrait {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 0 1.5rem 0;
+}

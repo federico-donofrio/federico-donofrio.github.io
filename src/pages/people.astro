@@ -14,34 +14,46 @@ import { currentPeople, formerPeople } from "../data/people.js";
     <h3>PhD students</h3>
 
     {currentPeople.phdStudents.map((person) => (
-      <article class="person">
-        <h4>{person.name}</h4>
+  <article class="person">
+    <h4>{person.name}</h4>
 
-        <p>
-          <strong>University:</strong>
-          {person.affiliation}
-        </p>
+    <p>
+      <strong>University:</strong>
+      {person.affiliation}
+    </p>
 
-        <p>
-  <strong>Dissertation:</strong> {person.dissertation}
-</p>
+    <p>
+      <strong>Dissertation:</strong> {person.dissertation}
+    </p>
 
-{person.thesisAbstract && (
-  <div class="thesis-abstract">
-    <p class="people-label">Abstract</p>
-    <p>{person.thesisAbstract}</p>
-  </div>
-)}
+    <p>
+      <strong>Supervisors:</strong> {person.supervisors}
+    </p>
 
+    {person.thesisAbstract && (
+      <div class="thesis-abstract">
+        <p class="people-label">Abstract</p>
+        <p>{person.thesisAbstract}</p>
+      </div>
+    )}
 
-        {person.supervisors.length > 0 && (
-          <p>
-            <strong>Supervisors:</strong>
-            {person.supervisors.join(", ")}
-          </p>
-        )}
-      </article>
-    ))}
+    {person.outputs && person.outputs.length > 0 && (
+      <>
+        <p><strong>Output</strong></p>
+
+        <ul class="outputs">
+          {person.outputs.map((output) => (
+            <li>
+              {output.authors && `${output.authors}, `}
+              <em>{output.title}</em>
+              {output.status && ` — ${output.status}`}
+            </li>
+          ))}
+        </ul>
+      </>
+    )}
+  </article>
+))}
 
 
     <h3>Research assistants</h3>
