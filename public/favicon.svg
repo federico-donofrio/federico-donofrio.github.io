@@ -1,9 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 128 128">
-    <path d="M50.4 78.5a75.1 75.1 0 0 0-28.5 6.9l24.2-65.7c.7-2 1.9-3.2 3.4-3.2h29c1.5 0 2.7 1.2 3.4 3.2l24.2 65.7s-11.6-7-28.5-7L67 45.5c-.4-1.7-1.6-2.8-2.9-2.8-1.3 0-2.5 1.1-2.9 2.7L50.4 78.5Zm-1.1 28.2Zm-4.2-20.2c-2 6.6-.6 15.8 4.2 20.2a17.5 17.5 0 0 1 .2-.7 5.5 5.5 0 0 1 5.7-4.5c2.8.1 4.3 1.5 4.7 4.7.2 1.1.2 2.3.2 3.5v.4c0 2.7.7 5.2 2.2 7.4a13 13 0 0 0 5.7 4.9v-.3l-.2-.3c-1.8-5.6-.5-9.5 4.4-12.8l1.5-1a73 73 0 0 0 3.2-2.2 16 16 0 0 0 6.8-11.4c.3-2 .1-4-.6-6l-.8.6-1.6 1a37 37 0 0 1-22.4 2.7c-5-.7-9.7-2-13.2-6.2Z" />
-    <style>
-        path { fill: #000; }
-        @media (prefers-color-scheme: dark) {
-            path { fill: #FFF; }
-        }
-    </style>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" fill="#ffffff"/>
+  <g fill="none" stroke="#222222" stroke-width="2" stroke-linejoin="miter" stroke-linecap="butt">
+    <!-- outline: three crenellated towers (tall central one) on a single wall -->
+    <path d="M8,56 V20 H11 V23 H12.5 V20 H15.5 V23 H17 V20 H20 V30 H24 V8 H28 V12 H30 V8 H34 V12 H36 V8 H40 V30 H44 V20 H47 V23 H48.5 V20 H51.5 V23 H53 V20 H56 V56 Z"/>
+    <!-- wall band -->
+    <path d="M8,34 H56"/>
+    <!-- arched gate -->
+    <path d="M28,56 V46 A4,4 0 0 1 36,46 V56"/>
+    <!-- window in central tower -->
+    <path d="M31,27 V18 A1,1 0 0 1 33,18 V27"/>
+  </g>
 </svg>
